@@ -54,9 +54,20 @@ class PayPalPayment(PaymentProvider):
             items.append({
                 'name': cart_item.product.product_name,
                 'quantity': str(int(cart_item.quantity)),
-                'price': str(product.unit_price.as_decimal()),
+                'price': str(product.get_price(request).as_decimal()),
                 'currency': product.unit_price.currency,
             })
+
+        for i, (k, row) in enumerate(cart.extra_rows.items()):
+            if k == 'taxes':
+                continue
+            items.append({
+                'name': str(row.instance['label']),
+                'quantity': 1,
+                'price': str(row.instance['amount'].as_decimal()),
+                'currency': row.instance['amount'].currency,
+            })
+
         return {
             'intent': 'sale',
             'payer': {
@@ -88,6 +99,7 @@ class PayPalPayment(PaymentProvider):
         if payment.create():
             redirect_url = [link for link in payment.links if link.rel == 'approval_url'][0].href
         else:
+            warnings.warn(str(payment.error))
             redirect_url = payload['redirect_urls']['cancel_url']
         return '$window.location.href="{0}";'.format(redirect_url)
 
