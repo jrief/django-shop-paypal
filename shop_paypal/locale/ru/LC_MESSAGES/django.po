@@ -1,0 +1,37 @@
+# Django-shop SendCloud Russian translation file.
+# Copyright (C) 2020, Jacob Rief
+# This file is distributed under the same license as the PACKAGE package.
+# Yuriy Mamaev <execut>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-10 14:05+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: modifiers.py:26
+msgid "plus {}% handling fees"
+msgstr "плюс {}% комиссия за обработку"
+
+#: payment.py:62
+msgid "Additional charges"
+msgstr "Дополнительные расходы"
+
+#: payment.py:143
+msgid "Paid with PayPal"
+msgstr "Оплатить с помощью PayPal"
+
+#: payment.py:163
+msgid "Acknowledge Payment"
+msgstr "Подтвердить платеж"
